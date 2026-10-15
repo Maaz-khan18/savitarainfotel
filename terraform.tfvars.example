@@ -2,9 +2,9 @@
 # Copy this file to infra/envs/{environment}/terraform.tfvars and customize the values
 
 # Basic Configuration
-region = "us-west-2"
+region = "us-east-1"
 env_name = "dev"
-project_prefix = "three-tier"
+project_prefix = "savitarainfotel"
 aws_profile = ""  # Leave empty for default AWS profile
 
 # Network Configuration
@@ -12,7 +12,7 @@ vpc_cidr = "10.0.0.0/16"
 az_count = 2
 
 # Optional: Specify custom Availability Zones
-# azs = ["us-west-2a", "us-west-2b"]
+# azs = ["us-east-1a", "us-east-1b"]
 
 # Optional: Specify custom subnet CIDRs (if not specified, they will be calculated automatically)
 # public_subnet_cidrs      = ["10.0.1.0/24", "10.0.2.0/24"]
@@ -30,13 +30,13 @@ enable_nacls       = false # Enable Network ACLs for additional security
 # ===================================
 
 # REQUIRED: SSL Certificate ARN from AWS Certificate Manager
-certificate_arn = "arn:aws:acm:us-west-2:123456789012:certificate/your-certificate-id"
+certificate_arn = "arn:aws:acm:us-east-1:295993620434:certificate/83b4d6f3-e53e-484f-9081-46f33151ff35"
 
 # REQUIRED: Your domain name (must have a hosted zone in Route53)
-domain_name = "example.com"
+domain_name = "maazkhan.xyz"
 
 # Subdomain for this environment (will create subdomain.example.com)
-subdomain = "demo"
+subdomain = "savitarainfotel"
 
 # ===================================
 # Web Tier Configuration
@@ -54,14 +54,14 @@ web_desired_capacity = 2           # Desired number of instances
 db_instance_class     = "db.t3.micro"  # RDS instance class
 db_allocated_storage  = 20             # Storage in GB
 db_engine_version     = "8.0"          # MySQL version
-db_name               = "sampledb"     # Database name
+db_name               = "savitaradb"     # Database name
 db_username           = "admin"        # Database username
-db_password           = "YourSecurePassword123!"  # Database password (keep secure!)
+db_password           = "admin123"  # Database password (keep secure!)
 
 # Resource Tags
 tags = {
   Environment = "dev"
-  Project     = "three-tier-architecture"
-  Owner       = "platform-team"
-  ManagedBy   = "terraform"
+  Project     = "AWS-three-tier-architecture"
+  Owner       = "savitarainfotel"
+  ManagedBy   = "Maaz-Khan"
 }
