@@ -1,0 +1,7 @@
+# Terraform local state and dependency cache
+**/.terraform/
+*.tfstate
+*.tfstate.*
+
+# Local Terraform variable files can contain secrets
+*.tfvars.local

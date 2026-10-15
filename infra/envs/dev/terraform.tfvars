@@ -56,7 +56,7 @@ db_allocated_storage  = 20             # Storage in GB
 db_engine_version     = "8.0"          # MySQL version
 db_name               = "savitaradb"     # Database name
 db_username           = "admin"        # Database username
-db_password           = "admin123"  # Database password (keep secure!)
+# db_password - Set via GitHub Secrets (TF_VAR_db_password) in CI/CD
 
 # Resource Tags
 tags = {
