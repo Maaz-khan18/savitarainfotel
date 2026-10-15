@@ -44,7 +44,16 @@ This project implements secure password management:
 - See [SECURITY.md](../../SECURITY.md) for detailed setup instructions
 
 ## Usage
-- Copy one of the tfvars under dev/staging/prod and adjust values.
+- From `infra/envs` in Windows PowerShell, provide a database password for the current session, then pass the environment-specific variables file explicitly. Terraform does not automatically load files in subdirectories:
+  ```powershell
+  $securePassword = Read-Host "Database password" -AsSecureString
+  $env:TF_VAR_db_password = [System.Net.NetworkCredential]::new("", $securePassword).Password
+  terraform plan -var-file="dev/terraform.tfvars"
+  # Review the plan, then apply it:
+  terraform apply -var-file="dev/terraform.tfvars"
+  Remove-Item Env:TF_VAR_db_password
+  ```
+  Replace `dev` with `staging` or `prod` as needed. Use a unique password of at least 8 characters that meets the database engine's requirements; do not reuse a weak or previously exposed password. Keep database passwords out of committed tfvars files; provide them through the environment, an untracked local variables file, or a CI/CD secret.
 - Optional: set AZs and custom subnet CIDRs. If omitted, they are derived from vpc_cidr.
 - Toggle feature flags like enable_nat_gateway, enable_flow_logs, enable_nacls.
 

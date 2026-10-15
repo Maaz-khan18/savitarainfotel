@@ -1,6 +1,7 @@
 variable "region" {
   description = "AWS region for providers"
   type        = string
+  default     = "us-east-1"
 }
 
 variable "aws_profile" {
@@ -167,6 +168,9 @@ variable "db_password" {
   type        = string
   sensitive   = true
   default     = null
+
+  validation {
+    condition     = var.db_password != null ? length(var.db_password) >= 8 : false
+    error_message = "Set db_password to an RDS-compatible value of at least 8 characters using TF_VAR_db_password or an untracked local variables file. When running from infra/envs, include the environment file, for example -var-file=\"dev/terraform.tfvars\"."
+  }
 }
-
-

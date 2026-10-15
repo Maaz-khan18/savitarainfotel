@@ -10,7 +10,9 @@ terraform {
       version = ">= 3.0"
     }
   }
-  backend "s3" {}
+  backend "s3" {
+    region = "us-east-1"
+  }
 }
 
 provider "aws" {
