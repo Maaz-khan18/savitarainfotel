@@ -4,7 +4,7 @@ This folder is a root module that composes the reusable network module in ../../
 
 ## Local Development vs CI/CD Setup
 
-### Local Development
+###### Local Development
 For local development, you have two options:
 
 **Option 1: Use Environment Variables (Recommended for CI/CD compatibility)**
