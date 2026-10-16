@@ -49,7 +49,7 @@ env:
   TF_IN_AUTOMATION: "true"
   TF_INPUT: "false"
   TF_VERSION: "1.6.6"
-  AWS_REGION: ${{ vars.TF_BACKEND_REGION }}
+  AWS_REGION: us-east-1
 
 jobs:
   plan:
@@ -80,7 +80,7 @@ jobs:
           terraform init \
             -backend-config="bucket=${{ vars.TF_BACKEND_BUCKET }}" \
             -backend-config="key=terraform.tfstate" \
-            -backend-config="region=${{ vars.TF_BACKEND_REGION }}" \
+            -backend-config="region=${{ env.AWS_REGION }}" \
             -backend-config="encrypt=true" \
             -backend-config="dynamodb_table=${{ vars.TF_BACKEND_DDB_TABLE }}" \
             -backend-config="kms_key_id=${{ vars.TF_BACKEND_KMS_KEY_ID }}" \
@@ -147,7 +147,7 @@ jobs:
           terraform init \
             -backend-config="bucket=${{ vars.TF_BACKEND_BUCKET }}" \
             -backend-config="key=terraform.tfstate" \
-            -backend-config="region=${{ vars.TF_BACKEND_REGION }}" \
+            -backend-config="region=${{ env.AWS_REGION }}" \
             -backend-config="encrypt=true" \
             -backend-config="dynamodb_table=${{ vars.TF_BACKEND_DDB_TABLE }}" \
             -backend-config="kms_key_id=${{ vars.TF_BACKEND_KMS_KEY_ID }}" \
@@ -232,7 +232,7 @@ jobs:
           terraform init \
             -backend-config="bucket=${{ vars.TF_BACKEND_BUCKET }}" \
             -backend-config="key=terraform.tfstate" \
-            -backend-config="region=${{ vars.TF_BACKEND_REGION }}" \
+            -backend-config="region=${{ env.AWS_REGION }}" \
             -backend-config="encrypt=true" \
             -backend-config="dynamodb_table=${{ vars.TF_BACKEND_DDB_TABLE }}" \
             -backend-config="kms_key_id=${{ vars.TF_BACKEND_KMS_KEY_ID }}" \
