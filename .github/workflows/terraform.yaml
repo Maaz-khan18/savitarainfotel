@@ -69,8 +69,23 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
+      - name: Debug OIDC claims
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('sts.amazonaws.com');
+            const payload = token.split('.')[1]
+              .replace(/-/g, '+')
+              .replace(/_/g, '/');
+            const claims = JSON.parse(Buffer.from(payload, 'base64').toString());
+            core.info(JSON.stringify({
+              iss: claims.iss,
+              aud: claims.aud,
+              sub: claims.sub
+            }, null, 2));
+
       - name: Configure AWS Credentials (OIDC)
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v4.1.0
         with:
           role-to-assume: arn:aws:iam::295993620434:role/Github-Actions-Role
           aws-region: ${{ env.AWS_REGION }}
@@ -136,8 +151,23 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
+      - name: Debug OIDC claims
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('sts.amazonaws.com');
+            const payload = token.split('.')[1]
+              .replace(/-/g, '+')
+              .replace(/_/g, '/');
+            const claims = JSON.parse(Buffer.from(payload, 'base64').toString());
+            core.info(JSON.stringify({
+              iss: claims.iss,
+              aud: claims.aud,
+              sub: claims.sub
+            }, null, 2));
+
       - name: Configure AWS Credentials (OIDC)
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v4.1.0
         with:
           role-to-assume: arn:aws:iam::295993620434:role/Github-Actions-Role
           aws-region: ${{ env.AWS_REGION }}
@@ -220,8 +250,23 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
+      - name: Debug OIDC claims
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('sts.amazonaws.com');
+            const payload = token.split('.')[1]
+              .replace(/-/g, '+')
+              .replace(/_/g, '/');
+            const claims = JSON.parse(Buffer.from(payload, 'base64').toString());
+            core.info(JSON.stringify({
+              iss: claims.iss,
+              aud: claims.aud,
+              sub: claims.sub
+            }, null, 2));
+
       - name: Configure AWS Credentials (OIDC)
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v4.1.0
         with:
           role-to-assume: arn:aws:iam::295993620434:role/Github-Actions-Role
           aws-region: ${{ env.AWS_REGION }}
