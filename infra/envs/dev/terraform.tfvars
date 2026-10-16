@@ -5,7 +5,7 @@
 region         = "us-east-1"
 env_name       = "dev"
 project_prefix = "savitarainfotel"
-aws_profile    = "295993620434" # Leave empty for default AWS profile
+aws_profile    = "" # Leave empty for default AWS profile
 
 # Network Configuration
 vpc_cidr = "10.0.0.0/16"
