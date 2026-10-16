@@ -72,7 +72,7 @@ jobs:
       - name: Configure AWS Credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-to-assume: arn:aws:iam::295993620434:role/Github-Actions-Role
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Terraform Init (remote backend)
@@ -139,7 +139,7 @@ jobs:
       - name: Configure AWS Credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-to-assume: arn:aws:iam::295993620434:role/Github-Actions-Role
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Terraform Init (remote backend)
@@ -223,7 +223,7 @@ jobs:
       - name: Configure AWS Credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-to-assume: arn:aws:iam::295993620434:role/Github-Actions-Role
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Terraform Init (remote backend)
