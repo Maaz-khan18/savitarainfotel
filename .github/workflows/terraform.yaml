@@ -81,7 +81,7 @@ jobs:
           TF_BACKEND_DDB_TABLE: ${{ vars.TF_BACKEND_DDB_TABLE }}
         run: |
           if [[ -z "$TF_BACKEND_BUCKET" ]]; then
-            echo "::error::GitHub Actions variable TF_BACKEND_BUCKET is required."
+            echo "::error::TF_BACKEND_BUCKET must be set to the S3 state bucket name."
             exit 1
           fi
           BACKEND_CONFIG=(
@@ -158,7 +158,7 @@ jobs:
           TF_BACKEND_DDB_TABLE: ${{ vars.TF_BACKEND_DDB_TABLE }}
         run: |
           if [[ -z "$TF_BACKEND_BUCKET" ]]; then
-            echo "::error::GitHub Actions variable TF_BACKEND_BUCKET is required."
+            echo "::error::TF_BACKEND_BUCKET must be set to the S3 state bucket name."
             exit 1
           fi
           BACKEND_CONFIG=(
@@ -253,7 +253,7 @@ jobs:
           TF_BACKEND_DDB_TABLE: ${{ vars.TF_BACKEND_DDB_TABLE }}
         run: |
           if [[ -z "$TF_BACKEND_BUCKET" ]]; then
-            echo "::error::GitHub Actions variable TF_BACKEND_BUCKET is required."
+            echo "::error::TF_BACKEND_BUCKET must be set to the S3 state bucket name."
             exit 1
           fi
           BACKEND_CONFIG=(
