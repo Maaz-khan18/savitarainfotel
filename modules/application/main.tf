@@ -245,12 +245,12 @@ resource "aws_iam_instance_profile" "web" {
 
 locals {
   user_data = base64encode(templatefile("${path.module}/user_data.sh", {
-    db_host                    = aws_db_instance.main.address
-    db_name                    = var.db_name
-    db_username                = var.db_username
+    db_host                     = aws_db_instance.main.address
+    db_name                     = var.db_name
+    db_username                 = var.db_username
     secrets_manager_secret_name = aws_secretsmanager_secret.db_password.name
-    aws_region                 = data.aws_region.current.region
-    domain                     = local.full_domain
+    aws_region                  = data.aws_region.current.region
+    domain                      = local.full_domain
   }))
 }
 
@@ -347,8 +347,8 @@ resource "random_id" "secret_suffix" {
 resource "aws_secretsmanager_secret" "db_password" {
   name                    = "${var.name}-db-password-${random_id.secret_suffix.hex}"
   description             = "RDS database master password"
-  recovery_window_in_days = 0  # Allow immediate deletion/recreation
-  
+  recovery_window_in_days = 0 # Allow immediate deletion/recreation
+
   tags = merge(var.tags, {
     Name = "${var.name}-db-password"
     Type = "Secrets Manager Secret"

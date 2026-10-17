@@ -2,10 +2,10 @@
 # Copy this file to infra/envs/{environment}/terraform.tfvars and customize the values
 
 # Basic Configuration
-region = "us-east-1"
-env_name = "dev"
+region         = "us-east-1"
+env_name       = "dev"
 project_prefix = "savitarainfotel"
-aws_profile = ""  # Leave empty for default AWS profile
+aws_profile    = "" # Leave empty for default AWS profile
 
 # Network Configuration
 vpc_cidr = "10.0.0.0/16"
@@ -42,20 +42,20 @@ subdomain = "savitarainfotel"
 # Web Tier Configuration
 # ===================================
 
-web_instance_type    = "t3.micro"  # EC2 instance type
-web_min_capacity     = 1           # Minimum number of instances
-web_max_capacity     = 3           # Maximum number of instances
-web_desired_capacity = 2           # Desired number of instances
+web_instance_type    = "t3.micro" # EC2 instance type
+web_min_capacity     = 1          # Minimum number of instances
+web_max_capacity     = 3          # Maximum number of instances
+web_desired_capacity = 2          # Desired number of instances
 
 # ===================================
 # Database Configuration
 # ===================================
 
-db_instance_class     = "db.t3.micro"  # RDS instance class
-db_allocated_storage  = 20             # Storage in GB
-db_engine_version     = "8.0"          # MySQL version
-db_name               = "savitaradb"     # Database name
-db_username           = "admin"        # Database username
+db_instance_class    = "db.t3.micro" # RDS instance class
+db_allocated_storage = 20            # Storage in GB
+db_engine_version    = "8.0"         # MySQL version
+db_name              = "savitaradb"  # Database name
+db_username          = "admin"       # Database username
 # db_password - Set via GitHub Secrets (TF_VAR_db_password) in CI/CD
 
 # Resource Tags
