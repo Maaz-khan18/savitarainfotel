@@ -56,6 +56,8 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: ${{ github.base_ref == 'env/dev' && 'dev' || github.base_ref == 'env/staging' && 'staging' || github.base_ref == 'env/prod' && 'prod' || '' }}
+    env:
+      TF_VAR_alb_access_log_bucket: ${{ vars.ALB_ACCESS_LOG_BUCKET }}
     defaults:
       run:
         shell: bash
@@ -130,6 +132,8 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name == 'env/dev' && 'dev' || github.ref_name == 'env/staging' && 'staging' || github.ref_name == 'env/prod' && 'prod' || '' }}
+    env:
+      TF_VAR_alb_access_log_bucket: ${{ vars.ALB_ACCESS_LOG_BUCKET }}
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
@@ -221,6 +225,8 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment }}
+    env:
+      TF_VAR_alb_access_log_bucket: ${{ vars.ALB_ACCESS_LOG_BUCKET }}
     steps:
       - name: Validate destroy confirmation
         if: github.event.inputs.action == 'destroy'

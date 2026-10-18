@@ -101,6 +101,16 @@ variable "subdomain" {
   default     = "example"
 }
 
+variable "alb_access_log_bucket" {
+  description = "S3 bucket for ALB access logs"
+  type        = string
+
+  validation {
+    condition     = length(trimspace(var.alb_access_log_bucket)) > 0
+    error_message = "Set alb_access_log_bucket to the S3 bucket name for ALB access logs."
+  }
+}
+
 # ===================================
 # Web Tier Configuration
 # ===================================
