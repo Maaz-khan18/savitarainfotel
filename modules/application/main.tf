@@ -114,6 +114,11 @@ resource "aws_lb" "main" {
 
   enable_deletion_protection = false
 
+  access_logs {
+    bucket  = var.alb_access_log_bucket
+    enabled = true
+  }
+
   tags = merge(var.tags, {
     Name = "${var.name}-alb"
     Type = "Application Load Balancer"

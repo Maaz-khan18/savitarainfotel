@@ -27,9 +27,10 @@ module "application" {
   private_app_subnet_ids = module.network.private_app_subnet_ids
   private_db_subnet_ids  = module.network.private_db_subnet_ids
 
-  certificate_arn = var.certificate_arn
-  domain_name     = var.domain_name
-  subdomain       = var.subdomain
+  certificate_arn       = var.certificate_arn
+  domain_name           = var.domain_name
+  subdomain             = var.subdomain
+  alb_access_log_bucket = var.alb_access_log_bucket
 
   web_instance_type    = var.web_instance_type
   web_min_capacity     = var.web_min_capacity

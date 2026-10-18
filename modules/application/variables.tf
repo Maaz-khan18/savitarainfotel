@@ -18,6 +18,11 @@ variable "public_subnet_ids" {
   type        = list(string)
 }
 
+variable "alb_access_log_bucket" {
+  description = "S3 bucket for ALB access logs"
+  type        = string
+}
+
 variable "private_app_subnet_ids" {
   description = "Private subnet IDs for EC2 instances"
   type        = list(string)
