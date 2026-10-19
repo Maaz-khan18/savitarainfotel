@@ -2,6 +2,41 @@
 **/.terraform/
 *.tfstate
 *.tfstate.*
+*.tfplan
+*.tfplan.*
+tfplan
+tfplan.*
+crash.log
+crash.*.log
+
+# Terraform CLI overrides and local configuration
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
 
 # Local Terraform variable files can contain secrets
 *.tfvars.local
+
+# Local environment variables and AWS credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+.aws/
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
