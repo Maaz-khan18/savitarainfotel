@@ -137,6 +137,7 @@ plan and confirmed the selected AWS account and environment.
 
 ## Useful references
 
+- [Step-by-step project guide](docs/PROJECT_GUIDE.md)
 - [Environment Terraform usage](infra/envs/README.md)
 - [Manual GitHub Actions workflows](docs/MANUAL_WORKFLOWS.md)
 - [Security guidance](SECURITY.md)
